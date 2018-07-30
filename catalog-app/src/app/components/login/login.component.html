@@ -1,17 +1,24 @@
-<div class="loginBox">    
-  <form class="form-signin">
-    <img class="mb-4" src="../../../assets/img/logo.png" alt="Main Logo" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail" class="sr-only">Email address</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label>
-    </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-  </form>
+<div class="container LoginForm">  
+  <div class="login-form">
+  <div class="main-div">
+      <div class="panel">
+        <img class="mb-4 img-responsive" src="../../../assets/img/logo.png" alt="Main Logo">
+        <h2>User Login</h2>
+        <p><small>Please enter your email and password</small></p>
+     </div>
+      <form id="Login">  
+          <div class="form-group">  
+              <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">  
+          </div>  
+          <div class="form-group">  
+              <input type="password" class="form-control" id="inputPassword" placeholder="Password">  
+          </div>
+          <div class="forgot">
+            <a href="reset.html">Forgot password?</a>
+          </div>
+          <button type="submit" class="btn btn-secondary btn-lg btn-block">Login</button>  
+      </form>
+  </div>
+  <p class="botto-text"><small>Created by Sergio Pinto -- {{ year }}</small></p>
+  </div>
 </div>
