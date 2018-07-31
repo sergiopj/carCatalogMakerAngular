@@ -1,12 +1,9 @@
-
 .LoginForm{ 
     background-image:url("../../../assets/img/loginBack.jpg");
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size:cover;
-    padding:10px;
+    background-size:100% 100%;
     position: absolute;
-    height: 100%;   
+    height: 110%;  
+    width:100%;
     max-width: 100%;
 }
 
@@ -45,7 +42,7 @@ button:hover {
 .login-form{ 
     text-align:center;
     position:relative;
-    top: 15%;
+    top: 5%;
 }
 
 .forgot a {
