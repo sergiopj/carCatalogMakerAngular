@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { UserService } from '../../services/user.service';
+// services
+
 
 @Component({
   selector: 'app-login',
@@ -13,27 +14,18 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
-    private user: UserService
+    private router: Router
   ) { }
 
   ngOnInit() {
   }
 
   // methods
-  loginUser(e) {
+  loginUser(event) {
 
-    e.preventDefault();
-    const username = e.target.elements[0].value;
-    const password = e.target.elements[1].value;
-
-    // if login is ok navigate to dashboard
-    if ( username === 'sergio@gmail.com' && password === 'pitus') {
-      this.user.setUserLoggedIn();
-      this.router.navigate(['/dashboard']);
-    } else {
-      this.router.navigate(['/login']);
-    }
+    event.preventDefault();
+    const email = event.target.querySelector('#inputEmail').value;
+    const password = event.target.querySelector('#inputPassword').value;
 
   }
 

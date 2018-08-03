@@ -7,12 +7,12 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './components/common/header/header.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 // config
 import { APP_ROUTING } from './app.routing';
+import { HomeComponent } from './components/home/home.component';
 // services
-import { UserService } from './services/user.service';
-import { AuthguardGuard } from './services/authguard.guard';
+
+
 
 
 
@@ -21,7 +21,7 @@ import { AuthguardGuard } from './services/authguard.guard';
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    DashboardComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -29,8 +29,6 @@ import { AuthguardGuard } from './services/authguard.guard';
     FormsModule,
   ],
   providers: [
-    UserService,
-    AuthguardGuard
   ],
   bootstrap: [AppComponent]
 })
