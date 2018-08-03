@@ -6,7 +6,7 @@
         <h2>User Login</h2>
         <p><small>Please enter your email and password</small></p>
      </div>
-      <form id="Login">  
+      <form id="Login" name="form" (submit)="loginUser($event)">  
           <div class="form-group">  
               <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">  
           </div>  
