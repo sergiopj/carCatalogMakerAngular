@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -6,17 +6,22 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   public year = new Date().getFullYear();
 
-  constructor( private auth: AuthService) { }
-
-  ngOnInit() {
+  constructor( private auth: AuthService ) {
+    auth.handleAuthentication();
   }
 
   login() {
+    console.log('dentro');
     this.auth.login();
+  }
+
+  logout() {
+    console.log('salgo');
+    this.auth.logout();
   }
 
 }
