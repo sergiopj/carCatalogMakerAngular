@@ -5,21 +5,20 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 // components
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
-
-// config
-import { APP_ROUTING } from './app.routing';
 import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { SelectElementsComponent } from './components/select-elements/select-elements.component';
 
-// services
+// config
+import { APP_ROUTING } from './app.routing';
 
+
+// services
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     HomeComponent,
     ContactComponent,
     SelectElementsComponent
@@ -30,6 +29,7 @@ import { SelectElementsComponent } from './components/select-elements/select-ele
     FormsModule,
   ],
   providers: [
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

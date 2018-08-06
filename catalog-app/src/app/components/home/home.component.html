@@ -3,11 +3,22 @@
       <header class="masthead mb-auto">
         <div class="inner">
           <h3 class="masthead-brand"></h3>
-          <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" [routerLink]="home" routerLinkActive="active">Home</a>
-            <a class="nav-link" [routerLink]="logout">Logout</a>
-            <a class="nav-link" [routerLink]="contact">Contact</a>            
-          </nav>
+          <nav class="navbar nav-item active navbar-expand-lg navbar-dark bg-dark">
+              <a class="navbar-brand" [routerLink]="home" routerLinkActive="active">HOME</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" [routerLink]="contact" >Contact</a>
+                  </li>                  
+                </ul>
+                <span class="navbar-text">
+                    <button class="nav-link btn btn-info" (click)="login()">Login</button>
+                </span>
+              </div>
+            </nav>
         </div>
       </header>
 
@@ -17,7 +28,7 @@
             Create your catalog of online car sales, in a simple and professional way. Do not waste hours of layout or high economic costs.
         </p>
         <p class="lead">
-          <a href="#" class="btn btn-lg btn-secondary">Let's start</a>
+          <a [routerLink]="select-elements" class="btn btn-lg btn-secondary">Let's start</a>
         </p>
       </main>
 
