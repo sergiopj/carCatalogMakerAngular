@@ -10,8 +10,6 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  public year = new Date().getFullYear();
-
   constructor(
     private route: ActivatedRoute,
     private router: Router
