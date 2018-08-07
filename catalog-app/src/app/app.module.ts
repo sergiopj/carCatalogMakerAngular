@@ -15,13 +15,15 @@ import { APP_ROUTING } from './app.routing';
 
 // services
 import { AuthService } from './services/auth.service';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ContactComponent,
-    SelectElementsComponent
+    SelectElementsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
