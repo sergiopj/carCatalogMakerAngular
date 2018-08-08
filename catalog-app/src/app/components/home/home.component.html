@@ -15,8 +15,8 @@
                   </li>                  
                 </ul>
                 <span class="navbar-text">
-                    <button class="nav-link btn btn-info" *ngIf="!auth.isAuthenticated()" (click)="login()">Login</button>
-                    <button class="nav-link btn btn-secondary" *ngIf="auth.isAuthenticated()" (click)="logout()">Logout</button>
+                    <button class="nav-link btn btn-info" (click)="login()">Login</button>
+                    <button class="nav-link btn btn-secondary" (click)="logout()">Logout</button>
                 </span>
               </div>
             </nav>
@@ -29,7 +29,7 @@
             Create your catalog of online car sales, in a simple and professional way. Do not waste hours of layout or high economic costs.
         </p>
         <p class="lead">
-          <a [routerLink]="select-elements" class="btn btn-lg btn-secondary" *ngIf="auth.isAuthenticated()">Let's start</a>
+          <a [routerLink]="select-elements" class="btn btn-lg btn-secondary" >Let's start</a>
         </p>
       </main>
 
