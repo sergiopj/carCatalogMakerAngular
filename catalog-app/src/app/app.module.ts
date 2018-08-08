@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 
 // modules from angular core
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
 // components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -19,6 +20,7 @@ import { APP_ROUTING } from './app.routing';
 import { UserService } from './services/user.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,7 @@ import { UserService } from './services/user.service';
     BrowserModule,
     APP_ROUTING,
     FormsModule,
-    HttpModule
+    HttpClientModule
   ],
   providers: [
     UserService

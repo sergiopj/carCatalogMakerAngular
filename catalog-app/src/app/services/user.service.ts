@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 // import url config file
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user-model';
 
 
@@ -9,25 +9,19 @@ import { User } from '../models/user-model';
 })
 export class UserService {
 
-  constructor( private http: Http) { }
-
+  constructor( private http: HttpClient) { }
 
   // API get user status
   public getUserStatus(loginFormData: any) {
 
-    console.log('BackData', loginFormData);
-
-    this.http.get('http://localhost:3000/login', {
+    this.http.post('http://localhost:3000/login', {
       params: {
         'email': loginFormData.email,
         'password': loginFormData.password
       }
     })
-    .toPromise()
-    .then(response => {
-      console.log(response);
-    })
-    .catch(console.log);
-  }
+    .subscribe(data => {   // data is already a JSON object
+        console.log('Datos', data);
+    });
 
-}
+}}
