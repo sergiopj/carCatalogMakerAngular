@@ -13,11 +13,7 @@
                   <li class="nav-item">
                     <a class="nav-link" [routerLink]="contact" >Contact</a>
                   </li>                  
-                </ul>
-                <span class="navbar-text">
-                    <button class="nav-link btn btn-info" (click)="login()">Login</button>
-                    <button class="nav-link btn btn-secondary" (click)="logout()">Logout</button>
-                </span>
+                </ul>                
               </div>
             </nav>
         </div>
@@ -29,7 +25,7 @@
             Create your catalog of online car sales, in a simple and professional way. Do not waste hours of layout or high economic costs.
         </p>
         <p class="lead">
-          <a [routerLink]="select-elements" class="btn btn-lg btn-secondary" >Let's start</a>
+          <a [routerLink]="select-elements" *ngIf="loginStatus" class="btn btn-lg btn-secondary" >Let's start</a>
         </p>
       </main>
 

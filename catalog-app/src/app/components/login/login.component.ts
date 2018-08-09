@@ -29,7 +29,10 @@ export class LoginComponent implements OnInit {
       'email': email,
       'password': password
     };
+    // use async and await here
     // send json and cypher password
     this._userService.getUserStatus(data);
+    // refresh changes 
+    console.log('status', this._userService.dataOk);
   }
 }

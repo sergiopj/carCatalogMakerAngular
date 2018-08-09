@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+// services
+import { UserService } from '../../services/user.service';
+
 
 @Component({
   selector: 'app-home',
@@ -8,15 +11,11 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  constructor( private userService: UserService) {
+  }
+
+  // on init?
   public year = new Date().getFullYear();
-
-  constructor( ) {
-  }
-
-  login() {
-  }
-
-  logout() {
-  }
+  public loginStatus = this.userService.isAuth();
 
 }
