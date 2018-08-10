@@ -16,6 +16,6 @@ export class HomeComponent {
 
   // on init?
   public year = new Date().getFullYear();
-  public loginStatus = this.userService.isAuth();
+  public loginStatus = this.userService.dataOk;
 
 }

@@ -17,9 +17,10 @@ export class UserService {
   constructor( private http: HttpClient, private router: Router) { }
 
   public dataOk: boolean;
+  public data: any;
 
   // API get user status
-  public getUserStatus(loginFormData: any) {
+  getUserStatus(loginFormData: any) {
 
     this.http.get(URLS_CONFIGURATION.login, {
       params: {
@@ -27,16 +28,11 @@ export class UserService {
         'password': sha1(loginFormData.password)
       }
     })
-    .subscribe(data => {   // data is already a JSON object
-        console.log('Datos', data);
+    .subscribe( data => {   // data is already a JSON object
+        console.log('Response data', data);
         this.dataOk = data['ok'];
         // refresh page to set value at variable, test methods of angular 6
     });
-  }
-
-  public isAuth() {
-    // return true or false
-      return this.dataOk;
   }
 
 }

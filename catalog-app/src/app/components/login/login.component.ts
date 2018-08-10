@@ -1,6 +1,7 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
 // services
 import { UserService } from '../../services/user.service';
 
@@ -11,11 +12,15 @@ import { UserService } from '../../services/user.service';
 })
 export class LoginComponent implements OnInit {
 
+  private noLoginMessage: string;
+  private showsLoginMessage: boolean;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private _userService: UserService
-  ) { }
+    private _userService: UserService,
+    private changeDR: ChangeDetectorRef
+  ) {}
 
   ngOnInit() {
   }
@@ -29,10 +34,13 @@ export class LoginComponent implements OnInit {
       'email': email,
       'password': password
     };
-    // use async and await here
-    // send json and cypher password
     this._userService.getUserStatus(data);
-    // refresh changes 
-    console.log('status', this._userService.dataOk);
+    // fix to async and await here
+    setTimeout (() => {
+      this._userService.dataOk ? this.router.navigate(['home'])
+          : this.showsLoginMessage = true;
+          this.changeDR.detectChanges();
+    }, 100);
   }
+
 }

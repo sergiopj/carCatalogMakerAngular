@@ -14,8 +14,12 @@
               <input type="password" class="form-control" id="inputPassword" placeholder="Password">  
           </div>
           <br>
-          <button type="submit" class="btn btn-secondary btn-lg btn-block">Login</button>  
-      </form>      
+          <button type="submit" class="btn btn-secondary btn-lg btn-block">Login</button>
+          <div class="alert alert-danger m-5 center parpadea" *ngIf="showsLoginMessage" role="alert">
+            Failed auth, please write your credentials again!
+          </div>            
+      </form>   
+         
   </div>  
   </div>
-</div>
+</div> 
