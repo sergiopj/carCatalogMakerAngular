@@ -1,3 +1,43 @@
-<p>
-  select-elements works!
-</p>
+<body class="text-center">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+      <div class="inner">
+        <h3 class="masthead-brand"></h3>
+        <nav class="navbar nav-item active navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="active">HOME</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/contact']" >Contact</a>
+                </li>                  
+              </ul> 
+              <button type="button" class="btn btn-light navbar-auth" *ngIf="!loginStatus" [routerLink]="['/login']">
+                Login
+              </button>  
+              <button type="button" class="btn btn-light navbar-auth" *ngIf="loginStatus" (click)="logOut()" [routerLink]="['/login']">
+                Logout
+              </button>              
+            </div>
+          </nav>
+      </div>
+    </header>
+    <div class="select-body">
+      <h2>Dropdowns</h2>
+      <p>The .dropdown-item-text class is used to add plain text to a dropdown, or used on links for default link styling.</p>                                         
+      <div class="dropdown">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          Dropdown button
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Link 1</a>
+          <a class="dropdown-item" href="#">Link 2</a>
+          <a class="dropdown-item-text" href="#">Text Link</a>
+          <span class="dropdown-item-text" href="#">Just Text</span>
+        </div>
+      </div>
+    </div>    
+  </div>
+</body>
