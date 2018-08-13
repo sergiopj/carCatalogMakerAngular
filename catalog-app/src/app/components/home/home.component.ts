@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 // services
 import { UserService } from '../../services/user.service';
@@ -9,13 +9,26 @@ import { UserService } from '../../services/user.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+
+  public year;
+  public loginStatus;
+ 
+  // need load loginStatus value at start 
+  ngOnInit() {
+    // on init?
+    this.year = new Date().getFullYear();
+    this.loginStatus = this.userService.dataOk;
+  }
 
   constructor( private userService: UserService) {
   }
 
-  // on init?
-  public year = new Date().getFullYear();
-  public loginStatus = this.userService.dataOk;
+  // to logout
+  logOut() {
+    this.userService.dataOk = false;
+  }
 
+
+  
 }

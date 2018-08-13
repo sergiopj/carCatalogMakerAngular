@@ -4,16 +4,22 @@
         <div class="inner">
           <h3 class="masthead-brand"></h3>
           <nav class="navbar nav-item active navbar-expand-lg navbar-dark bg-dark">
-              <a class="navbar-brand" [routerLink]="home" routerLinkActive="active">HOME</a>
+              <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="active">HOME</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item">
-                    <a class="nav-link" [routerLink]="contact" >Contact</a>
+                    <a class="nav-link" [routerLink]="['/contact']" >Contact</a>
                   </li>                  
-                </ul>                
+                </ul> 
+                <button type="button" class="btn btn-light navbar-auth" *ngIf="!loginStatus" [routerLink]="['/login']">
+                  Login
+                </button>  
+                <button type="button" class="btn btn-light navbar-auth" *ngIf="loginStatus" (click)="logOut()" [routerLink]="['/login']">
+                  Logout
+                </button>              
               </div>
             </nav>
         </div>
@@ -25,7 +31,7 @@
             Create your catalog of online car sales, in a simple and professional way. Do not waste hours of layout or high economic costs.
         </p>
         <p class="lead">
-          <a [routerLink]="select-elements" *ngIf="loginStatus" class="btn btn-lg btn-secondary" >Let's start</a>
+          <a [routerLink]="['/select-elements']" *ngIf="loginStatus" class="btn btn-lg btn-secondary" >Let's start</a>
         </p>
       </main>
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// services
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-contact',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-
-  constructor() { }
-
+    
+  public loginStatus;
+ 
+  // need load loginStatus value at start 
   ngOnInit() {
+    // on init?
+    this.loginStatus = this.userService.dataOk;
+  }
+
+  constructor( private userService: UserService) {
   }
 
 }
