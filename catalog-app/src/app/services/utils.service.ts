@@ -5,10 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class UtilsService {
 
-
-
   constructor() { }
-
 
   /* UTILS */
 
@@ -35,8 +32,5 @@ export class UtilsService {
 
     return currentDate = `${dd}/${mm}/${yyyy}`;
   }
-
-
-
 
 }

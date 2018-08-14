@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { SelectElementsComponent } from './components/select-elements/select-elements.component';
 import { LoginComponent } from './components/login/login.component';
+import { CarDataTableComponent } from './components/car-data-table/car-data-table.component';
 
 // config
 import { APP_ROUTING } from './app.routing';
@@ -18,6 +19,8 @@ import { APP_ROUTING } from './app.routing';
 
 // services
 import { AuthService } from './services/auth.service';
+import { CarDataService } from './services/car-data.service';
+
 
 
 
@@ -27,7 +30,8 @@ import { AuthService } from './services/auth.service';
     HomeComponent,
     ContactComponent,
     SelectElementsComponent,
-    LoginComponent
+    LoginComponent,
+    CarDataTableComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,8 @@ import { AuthService } from './services/auth.service';
     HttpClientModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    CarDataService
   ],
   bootstrap: [AppComponent]
 })
