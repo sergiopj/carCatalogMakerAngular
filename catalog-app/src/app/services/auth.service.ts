@@ -12,7 +12,7 @@ import { URLS_CONFIGURATION } from '../common/config/urls-config';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class AuthService {
 
   constructor( private http: HttpClient, private router: Router) { }
 
@@ -33,6 +33,11 @@ export class UserService {
         this.dataOk = data['ok'];
         // refresh page to set value at variable, test methods of angular 6
     });
+  }
+
+   // to logout
+  logOut() {
+    this.dataOk = false;
   }
 
 }

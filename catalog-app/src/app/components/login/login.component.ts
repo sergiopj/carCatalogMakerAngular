@@ -3,7 +3,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 // services
-import { UserService } from '../../services/user.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private _userService: UserService,
+    private _authService: AuthService,
     private changeDR: ChangeDetectorRef
   ) {}
 
@@ -34,10 +34,10 @@ export class LoginComponent implements OnInit {
       'email': email,
       'password': password
     };
-    this._userService.getUserStatus(data);
+    this._authService.getUserStatus(data);
     // fix to async and await here
     setTimeout (() => {
-      this._userService.dataOk ? this.router.navigate(['home'])
+      this._authService.dataOk ? this.router.navigate(['home'])
           : this.showsLoginMessage = true;
           this.changeDR.detectChanges();
     }, 100);

@@ -17,7 +17,7 @@
               <button type="button" class="btn btn-light navbar-auth" *ngIf="!loginStatus" [routerLink]="['/login']">
                 Login
               </button>  
-              <button type="button" class="btn btn-light navbar-auth" *ngIf="loginStatus" (click)="logOut()" [routerLink]="['/login']">
+              <button type="button" class="btn btn-light navbar-auth" *ngIf="loginStatus" (click)="_authService.logOut()" [routerLink]="['/login']">
                 Logout
               </button>              
             </div>
@@ -25,11 +25,16 @@
       </div>
     </header>
     <div class="select-body">
-      <h2>Dropdowns</h2>
-      <p>The .dropdown-item-text class is used to add plain text to a dropdown, or used on links for default link styling.</p>                                         
+      <h2>Select your vehicles</h2>
+      <p *ngIf="loginStatus">
+        Select the vehicles you want to include in your catalog, keep in mind that today's date is {{ currentDate }}.
+      </p>
+      <p *ngIf="!loginStatus">
+        Please if you have not identified in the application go back to the login screen to use this feature.
+      </p>                                                     
       <div class="dropdown">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-          Dropdown button
+        <button type="button" *ngIf="loginStatus" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          Select Item
         </button>
         <div class="dropdown-menu">
           <a class="dropdown-item" href="#">Link 1</a>

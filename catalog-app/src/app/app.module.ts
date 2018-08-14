@@ -17,7 +17,7 @@ import { APP_ROUTING } from './app.routing';
 
 
 // services
-import { UserService } from './services/user.service';
+import { AuthService } from './services/auth.service';
 
 
 
@@ -36,7 +36,7 @@ import { UserService } from './services/user.service';
     HttpClientModule
   ],
   providers: [
-    UserService
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
