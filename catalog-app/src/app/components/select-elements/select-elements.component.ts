@@ -29,6 +29,8 @@ export class SelectElementsComponent implements OnInit {
     this.loginStatus = this._authService.dataOk;
     this.currentDate = this._utilsService.currentDate();
     this.carData = this._carDataService.getCarData();
+    // use some equal to this to print in table car, find method search element in array or json
+    // let employeeDB = employees.find(employee => employee.id === id);
     // fix to async and await here
     console.log('CarData', this.carData);
 
