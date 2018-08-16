@@ -34,13 +34,13 @@ export class LoginComponent implements OnInit {
       'email': email,
       'password': password
     };
-    this._authService.getUserStatus(data);
-    // fix to async and await here
-    setTimeout (() => {
-      this._authService.dataOk ? this.router.navigate(['home'])
+    this._authService.getUserStatus(data).then( resolve => {
+      resolve ? this.router.navigate(['home'])
           : this.showsLoginMessage = true;
           this.changeDR.detectChanges();
-    }, 100);
+    }).catch( error => {
+      throw new Error('Auth service failed');
+    });
   }
 
 }

@@ -10,6 +10,7 @@ import { timeout } from 'q';
   templateUrl: './select-elements.component.html',
   styleUrls: ['./select-elements.component.css']
 })
+// tslint:disable-next-line
 export class SelectElementsComponent implements OnInit {
 
   public loginStatus: boolean;
@@ -28,11 +29,17 @@ export class SelectElementsComponent implements OnInit {
     // on init?
     this.loginStatus = this._authService.dataOk;
     this.currentDate = this._utilsService.currentDate();
-    this.carData = this._carDataService.getCarData();
+    // promise resolve from getCarData()
+    this._carDataService.getCarData().then(value => {
+      this.carData = this._carDataService.carData;
+      console.log('CarData', this.carData);
+    }).catch( error => {
+      throw new Error('Get car data failed');
+    });
+
     // use some equal to this to print in table car, find method search element in array or json
     // let employeeDB = employees.find(employee => employee.id === id);
     // fix to async and await here
-    console.log('CarData', this.carData);
 
   }
 
