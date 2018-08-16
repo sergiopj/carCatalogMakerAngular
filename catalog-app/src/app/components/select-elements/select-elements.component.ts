@@ -15,7 +15,7 @@ export class SelectElementsComponent implements OnInit {
 
   public loginStatus: boolean;
   private currentDate: string;
-  private carData;
+  private selectedCarList = [];
 
 
   constructor( private _authService: AuthService,
@@ -31,8 +31,7 @@ export class SelectElementsComponent implements OnInit {
     this.currentDate = this._utilsService.currentDate();
     // promise resolve from getCarData()
     this._carDataService.getCarData().then(value => {
-      this.carData = this._carDataService.carData;
-      console.log('CarData', this.carData);
+      console.log('CarData', this._carDataService.carData.data);
     }).catch( error => {
       throw new Error('Get car data failed');
     });
@@ -41,6 +40,11 @@ export class SelectElementsComponent implements OnInit {
     // let employeeDB = employees.find(employee => employee.id === id);
     // fix to async and await here
 
+  }
+
+  addCarTable(carModelData) {
+
+    this.selectedCarList.push(carModelData);
   }
 
 }

@@ -22,6 +22,7 @@ export class CarDataService {
       .subscribe( data => {   // data is already a JSON object
           this.carData = data;
           // console.log('Api car data', this.carData);
+          console.log('DATA', this.carData);
           resolve (this.carData);
       });
     });

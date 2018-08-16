@@ -11,7 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { SelectElementsComponent } from './components/select-elements/select-elements.component';
 import { LoginComponent } from './components/login/login.component';
-import { CarDataTableComponent } from './components/car-data-table/car-data-table.component';
+
 
 // config
 import { APP_ROUTING } from './app.routing';
@@ -30,8 +30,7 @@ import { CarDataService } from './services/car-data.service';
     HomeComponent,
     ContactComponent,
     SelectElementsComponent,
-    LoginComponent,
-    CarDataTableComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,

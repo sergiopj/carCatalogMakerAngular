@@ -44,3 +44,33 @@
    50% { opacity: 0.0; }
   100% { opacity: 1.0; }
 }
+
+
+/* to scrollabe dropdown list*/
+.scrollable-menu {
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
+}
+
+
+/* dropdown list */
+.dropdown .nav-link {color:#fff; text-decoration: none;}
+.dropdown .dropdown-menu a{color: #000; text-decoration: none;}
+.dropdown .btn {background: green; color:#fff;}
+.dropdown .btn:hover {background: cyan; color:#000;}
+.dropdown .btn:active {background: cyan; color:#000;}
+.dropdown .btn:focus {background: cyan; color:#000;}
+
+
+/* tabke with data*/
+.table th {
+  text-align: center;
+}
+
+.table {
+  border-radius: 5px;
+  width: 50%;
+  margin: 5% auto;
+  float: none;
+}
