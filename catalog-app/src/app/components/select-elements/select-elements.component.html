@@ -48,16 +48,20 @@
                 <tr>
                   <th scope="col">Id</th>
                   <th scope="col">Car model</th>
-                  <th scope="col">Creation date</th>
-                  <th scope="col">Price</th>
+                  <th scope="col">Car family</th>
+                  <th scope="col">Release year</th>
+                  <th scope="col">Current price</th>
+                  <th scope="col">Discount rate %</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let item of selectedCarList; let i = index">
-                  <td>{{item.id_car_model}}</td> 
-                  <td>{{item.name}}</td>
-                  <td>{{item.date_create | date:'longDate' }}</td>   
-                  <td>{{400000 | currency:'USD':true}}</td>                   
+                  <td>{{ item.id_car_model }}</td> 
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.family }}</td>
+                  <td>{{ item.date_release | date:'yyyy' }}</td>   
+                  <td><input type="text" class="form-control"  required="required" value="{{item.current_price | currency:'USD':true}}"></td>
+                  <td><input type="number" class="form-control form-control-sm" min="0" max="99"></td>                   
                 </tr>    
               </tbody>
             </table>
