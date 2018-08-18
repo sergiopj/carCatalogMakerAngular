@@ -30,9 +30,7 @@ export class SelectElementsComponent implements OnInit {
     this.loginStatus = this._authService.dataOk;
     this.currentDate = this._utilsService.currentDate();
     // promise resolve from getCarData()
-    this._carDataService.getCarData().then(value => {
-      console.log('CarData', this._carDataService.carData.data);
-    }).catch( error => {
+    this._carDataService.getCarData().catch( error => {
       throw new Error('Get car data failed');
     });
 
@@ -41,10 +39,18 @@ export class SelectElementsComponent implements OnInit {
     // fix to async and await here
 
   }
-
+  // add car data to table
   addCarTable(carModelData) {
-
     this.selectedCarList.push(carModelData);
+  }
+
+  onChangeRate(event) {
+
+    // to apply discount to the price
+  
+    console.log(event);
+    // get price input value
+    // const carPrice = 
   }
 
 }

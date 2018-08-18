@@ -117,3 +117,7 @@ a:hover {
 input {
   color: black;
 }
+
+.btn-spacing {
+  margin-top: 15px;
+}

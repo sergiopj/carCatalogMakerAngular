@@ -12,6 +12,7 @@ import { URLS_CONFIGURATION } from '../common/config/urls-config';
 export class CarDataService {
 
   public carData;
+  public pdfCatalog;
 
   constructor(private http: HttpClient) { }
 
@@ -27,4 +28,20 @@ export class CarDataService {
       });
     });
   }
+
+   // method getcardata return data in resolve of promise
+   sendData (dataForm) {
+    return new Promise( resolve => {
+      this.http.post(URLS_CONFIGURATION.sendCarData, dataForm)
+      .subscribe( pdfCatalog => {   // data is already a JSON object
+          this.pdfCatalog = pdfCatalog;
+          // console.log('Api car data', this.carData);
+          console.log('DATA', this.pdfCatalog);
+          resolve (this.pdfCatalog);
+      });
+    });
+  }
+
+
+
 }
