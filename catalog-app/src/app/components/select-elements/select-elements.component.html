@@ -43,7 +43,7 @@
           </div>
         </div>
         <div class="table-content" *ngIf="loginStatus">
-          <form id="Login" name="form" (change)="onChangeRate($event)">  
+          <form name="form" (change)="onChangeCalc($event.target)">  
             <button type="submit" class="btn-spacing btn btn-danger">Print Pdf Catalog</button>
             <table class="table table-striped table-dark">
               <thead>
@@ -52,7 +52,7 @@
                   <th scope="col">Car model</th>
                   <th scope="col">Car family</th>
                   <th scope="col">Release year</th>
-                  <th scope="col">Current price</th>
+                  <th scope="col">Current price €</th>
                   <th scope="col">Discount rate %</th>
                 </tr>
               </thead>
@@ -62,8 +62,8 @@
                   <td>{{ item.name }}</td>
                   <td>{{ item.family }}</td>
                   <td>{{ item.date_release | date:'yyyy' }}</td>   
-                  <td><input  id="price" type="text" class="form-control"  required="required" value="{{item.current_price | currency:'USD':true}}"></td>
-                  <td><input id="rate" type="number" value="0" class="form-control form-control-sm" min="0" max="99"></td>                   
+                  <td><input  id="{{ 'price'+i }}"  type="number" name="price" class="form-control" required="required" value="{{item.current_price}}"></td>
+                  <td><input id="{{ 'rate'+i }}" type="number" name="rate" value="0" class="form-control form-control-sm" min="0" max="99"></td>                   
                 </tr>    
               </tbody>
             </table>
