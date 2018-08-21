@@ -16,12 +16,13 @@ import { LoginComponent } from './components/login/login.component';
 // config
 import { APP_ROUTING } from './app.routing';
 
+// pipes
+import { CurrencyTransPipe } from './pipes/currency-trans.pipe';
+
 
 // services
 import { AuthService } from './services/auth.service';
 import { CarDataService } from './services/car-data.service';
-
-
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { CarDataService } from './services/car-data.service';
     HomeComponent,
     ContactComponent,
     SelectElementsComponent,
-    LoginComponent
+    LoginComponent,
+    CurrencyTransPipe
   ],
   imports: [
     BrowserModule,
