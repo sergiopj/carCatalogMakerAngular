@@ -19,6 +19,8 @@ export class SelectElementsComponent implements OnInit {
   private currentDate: string;
   private selectedCarList = [];
   private finalPrice: number;
+  private currentPrice: number;
+  
 
   constructor( private _authService: AuthService,
                private _utilsService: UtilsService,
@@ -41,6 +43,8 @@ export class SelectElementsComponent implements OnInit {
   // add car data to table
   addCarTable(carModelData) {
     this.selectedCarList.push(carModelData);
+    this.currentPrice = carModelData.current_price;
+    this.finalPrice = this.currentPrice;
     this.changeDR.detectChanges();
   }
 
@@ -48,14 +52,14 @@ export class SelectElementsComponent implements OnInit {
     // to apply discount to the price
     // cada vez que se use esta funcion se recorre los elementos del array de tabla
     // y en cada vuelta se cakcule el price respecto al rate
-    console.log(event.id.substr(-1));
+    console.log('event', event.value);
     console.log('Array', this.selectedCarList[event.id.substr(-1)].current_price);
-
-
-    this.changeDR.detectChanges();
     
-   
+    
+    this.changeDR.detectChanges();
 
+    this.finalPrice = this.currentPrice - (( this.currentPrice * event.value) / 100);
+    this.changeDR.detectChanges();    
   }
 
 
