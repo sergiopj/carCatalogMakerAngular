@@ -29,14 +29,15 @@ export class CarDataService {
     });
   }
 
-   // method getcardata return data in resolve of promise
-   sendData (dataForm) {
+  // method getcardata return data in resolve of promise
+  sendData (dataForm) {
+    console.log('Data to send ', dataForm);
     return new Promise( resolve => {
       this.http.post(URLS_CONFIGURATION.sendCarData, dataForm)
       .subscribe( pdfCatalog => {   // data is already a JSON object
           this.pdfCatalog = pdfCatalog;
           // console.log('Api car data', this.carData);
-          console.log('DATA', this.pdfCatalog);
+          console.log('DATA return', this.pdfCatalog);
           resolve (this.pdfCatalog);
       });
     });
