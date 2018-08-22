@@ -10,7 +10,12 @@ import { timeout } from 'q';
   templateUrl: './select-elements.component.html',
   styleUrls: ['./select-elements.component.css']
 })
-// tslint:disable-next-line
+
+/*MEJORAS
+que no se repitan coches seleccionados puedo diferenciarlos por id
+*/
+
+
 export class SelectElementsComponent implements OnInit {   
   
   public loginStatus: boolean;
