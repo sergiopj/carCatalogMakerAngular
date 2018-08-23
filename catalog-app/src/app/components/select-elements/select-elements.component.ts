@@ -16,11 +16,12 @@ que no se repitan coches seleccionados puedo diferenciarlos por id
 */
 
 
-export class SelectElementsComponent implements OnInit {   
+export class SelectElementsComponent implements OnInit {
   
   public loginStatus: boolean;
   private currentDate: string;
-  private selectedCarList = [];  
+  private selectedCarList = [];
+  private exist: boolean;
 
   constructor( private _authService: AuthService,
                private _utilsService: UtilsService,
@@ -40,25 +41,45 @@ export class SelectElementsComponent implements OnInit {
     });
   }
 
+  
+
   // add car data to table
   addCarTable(carModelData) {
-    this.selectedCarList.push(carModelData);   
+
+    this.exist = false;
+
+    if ( this.selectedCarList.length > 0 ) {
+      this.selectedCarList.forEach(element => {
+        if (this.selectedCarList.indexOf(carModelData) >= 0) {
+          console.log('Ya existe');
+          this.exist = true;
+        } else {
+          console.log('No existe lo metemos en el array');
+          this.exist = false;
+        }
+      });
+    }
+
+    if (!this.exist) {
+      console.log('test', this.selectedCarList.length )
+      this.selectedCarList.push(carModelData);
+    }    
   }
 
   // to delete one row of the table
-  deleteRow(index) {    
-    this.selectedCarList.splice(index, 1);    
+  deleteRow(index) {
+    this.selectedCarList.splice(index, 1);
   }
 
   // replace prices in array data to send server
-  addPrice(index, newValue) {    
+  addPrice(index, newValue) {
     this.selectedCarList[index].current_price = newValue;
   }
 
   // to send array data to server and response pdf
-  sendSelection() {    
-    let pdf = this._carDataService.sendData(this.selectedCarList);
-    console.log(pdf);
+  sendSelection() {
+    const pdf = this._carDataService.sendData(this.selectedCarList);
+    // console.log(pdf);
   }
 
 }

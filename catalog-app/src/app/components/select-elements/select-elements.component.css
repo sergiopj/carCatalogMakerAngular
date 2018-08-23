@@ -125,3 +125,8 @@ input {
 .btn-delete-spacing {
   margin-top: 7.5px;
 }
+
+
+.alert {
+  padding-top: 10px;
+}
