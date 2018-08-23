@@ -39,9 +39,7 @@ export class SelectElementsComponent implements OnInit {
     this._carDataService.getCarData().catch( error => {
       throw new Error('Get car data failed');
     });
-  }
-
-  
+  } 
 
   // add car data to table
   addCarTable(carModelData) {
@@ -51,19 +49,16 @@ export class SelectElementsComponent implements OnInit {
     if ( this.selectedCarList.length > 0 ) {
       this.selectedCarList.forEach(element => {
         if (this.selectedCarList.indexOf(carModelData) >= 0) {
-          console.log('Ya existe');
           this.exist = true;
         } else {
-          console.log('No existe lo metemos en el array');
           this.exist = false;
         }
       });
     }
 
     if (!this.exist) {
-      console.log('test', this.selectedCarList.length )
       this.selectedCarList.push(carModelData);
-    }    
+    }
   }
 
   // to delete one row of the table
