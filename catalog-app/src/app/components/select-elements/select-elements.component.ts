@@ -11,11 +11,6 @@ import { timeout } from 'q';
   styleUrls: ['./select-elements.component.css']
 })
 
-/*MEJORAS
-que no se repitan coches seleccionados puedo diferenciarlos por id
-*/
-
-
 export class SelectElementsComponent implements OnInit {
   
   public loginStatus: boolean;
